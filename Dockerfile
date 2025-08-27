@@ -21,6 +21,8 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config
 
+RUN gem install bundler -v 2.4.19
+    
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
